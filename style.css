@@ -25,6 +25,8 @@ nav {
   background: white;
   display: flex;
   align-items: center;
+  justify-content:space-evenly;
+
 }
 
 
@@ -167,6 +169,42 @@ nav > h1 {
   width: 50%;
   height: auto;
 }
+
+.info > .person > img {
+  border-radius: 50%;
+  width: 10rem;
+  height: 10rem;
+}
+
+.info > .person > h5 {
+  font-size: 2.2rem;
+  color: #0059a0;
+  font-family: serif;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media (max-width: 50rem) {
   .menu > * {
