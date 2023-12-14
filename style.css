@@ -1,48 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;500&display=swap');
+
+
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  min-height: 100vw;
-  font-family: Arial;
-}
-
-
 
 
 body {
-  font-family: Arial;
+  font-family: "Oswald", sans-serif;
   width: 100vw;
   min-height: 100vh;
   overflow-x: hidden;
 }
 
-nav {
-  width: 100%;
-  height: 3.5rem;
-  background: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
+nav {
+  --height: 3.5rem;
+  --border: calc(var(--height)/2);
+  width: 30%;
+  height: var(--height);
+  position: fixed;
+  display: flex;
+  z-index: 99999;
+  background: white;
+  align-items: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  border-bottom-right-radius: var(--border);
+  border-top-right-radius: var(--border);
+  transition:
+    width .3s ease-in-out,
+    border-bottom-right-radius .3s ease-in-out,
+    border-top-right-radius .3s ease-in-out;
 }
 
-
-nav > img {
+nav>img {
   height: 100%;
   width: auto;
 }
 
-nav > h1 {
+nav>h1 {
   color: #0059a0;
 }
 
 .header {
   width: 100%;
   height: 80vh;
-  background: url("profil.jpg");
   background-size: cover;
   background-position: center;
   display: flex;
@@ -53,6 +59,9 @@ nav > h1 {
   font-size: clamp(1rem, 10vw, 1.3rem);
   position: relative;
   isolation: isolate;
+  transition: background .5s ease-in-out;
+  overflow: hidden;
+  ;
 }
 
 .header::before {
@@ -60,14 +69,13 @@ nav > h1 {
   position: absolute;
   width: 100%;
   height: 100%;
+  transform: translateY(20%);
   inset: 0;
   margin: auto;
   z-index: -1;
-  background: linear-gradient(
-    180deg,
-    transparent,
-    rgba(0,0,0,.4)
-  );
+  background: linear-gradient(180deg,
+      transparent,
+      rgba(0, 0, 0, 1));
 }
 
 .menu {
@@ -80,7 +88,7 @@ nav > h1 {
   align-items: center;
 }
 
-.menu > * {
+.menu>* {
   padding: 0 2rem;
   width: auto;
   height: 100%;
@@ -94,25 +102,25 @@ nav > h1 {
 }
 
 
-.menu > *:hover > span,
-.menu > div:first-child {
+.menu>*:hover>span,
+.menu>div:first-child {
   color: #f50d63;
 }
 
 
-.menu > .advanced {
+.menu>.advanced {
   position: relative;
   display: flex;
   flex-direction: column;
 
 }
 
-.menu > .advanced > ul {
+.menu>.advanced>ul {
   display: none;
 }
 
 
-.menu > .advanced:hover > ul {
+.menu>.advanced:hover>ul {
   position: absolute;
   display: flex;
   left: 0;
@@ -125,7 +133,7 @@ nav > h1 {
   border-radius: .3rem;
 }
 
-.menu > .advanced > ul > a {
+.menu>.advanced>ul>a {
   text-decoration: none;
   color: #06629a;
   height: 3rem;
@@ -134,65 +142,107 @@ nav > h1 {
   padding-left: 1rem;
 }
 
-.menu > .advanced > ul > a:hover {
+.menu>.advanced>ul>a:hover {
   color: #f50d63;
 }
 
 
+body > h1 {
+  padding: 2rem;
+  color: #06629a;
+}
 
 .info {
   width: 100%;
+  background: white;
   height: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 7rem;
-  padding: 2rem 0;
-}
-
-
-.info > h1 {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  margin-bottom: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
+  padding: 2rem 2rem;
+  gap: 1rem;
 }
 
 
 
-.info > div {
+.info>div {
   width: 100%;
   height: auto;
+  aspect-ratio: 3/4;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 1rem;
+  background: #0059a0;
+  border-radius: 1rem;
 }
-.info > div > img {
-  width: 50%;
+
+
+
+.info>div>img {
+  width: 100%;
   height: auto;
-}
-
-.info > .person > img {
+  aspect-ratio: 1/1;
   border-radius: 50%;
-  width: 10rem;
-  height: 10rem;
-}
-
-.info > .person > h5 {
-  font-size: 2.2rem;
-  color: #0059a0;
-  font-family: serif;
+  margin-bottom: auto;
 }
 
 
 
+.info>div>h5 {
+  font-size: 1.05rem;
+  font-weight: 300;
+  letter-spacing: 0.1rem;
+  white-space: nowrap;
+}
+
+
+.info>div>p {
+  font-size: 1rem;
+}
+
+.footer {
+  background-color: black;
+  width: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.footer>.part-of>a {
+  text-decoration: none;
+  color: hsl(0, 0%, 70%)
+}
+
+.footer>.social>div {
+  display: flex;
+  align-items: center;
+  height: 3rem;
+  width: 100%;
+
+}
 
 
 
 
+.footer>.social>div>a {
+  height: 100%;
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 
+.footer>.social>div>a:first-child>svg {
+  height: 60%;
+}
 
 
+.footer>.social>div>a:last-child>svg {
+  height: 80%;
+}
 
 
 
@@ -208,9 +258,7 @@ nav > h1 {
 
 
 @media (max-width: 50rem) {
-  .menu > * {
+  .menu>* {
     display: none !important;
   }
 }
-
-
